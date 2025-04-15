@@ -1,0 +1,18 @@
+<div class="products-container">
+    @for (product of products; track product.id) {
+        <div class="card">
+            <img [src]="product.image" alt="">
+            <div class="card-body">
+                <div class="product-info">
+                    <div>
+                        <h5>{{product.name}}</h5>
+                        <p>{{product.price | currency:'USD'}}</p>
+                    </div>
+                    @if(product.onSale){
+                        <img class="sale-image" src="sale.png" alt="On Sale">
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>

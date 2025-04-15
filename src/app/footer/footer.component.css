@@ -1,0 +1,19 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 20px;
+    background-color: #333;
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 5px;
+}
+
+.logo {
+    max-height: 50px;
+}
