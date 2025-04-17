@@ -1,7 +1,11 @@
+import {Rating} from './rating';
 export interface Product {
     id: number;
-    image: string;
-    name: string;
+    title: string;
     price: number;
-    onSale: boolean;
+    description: string;
+    category: string;
+    image: string;
+    rating: Rating;
+    //onSale: boolean;
 }

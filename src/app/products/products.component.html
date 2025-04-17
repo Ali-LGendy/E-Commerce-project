@@ -1,18 +1,43 @@
-<div class="products-container">
-    @for (product of products; track product.id) {
-        <div class="card">
-            <img [src]="product.image" alt="">
-            <div class="card-body">
-                <div class="product-info">
-                    <div>
-                        <h5>{{product.name}}</h5>
-                        <p>{{product.price | currency:'USD'}}</p>
-                    </div>
-                    @if(product.onSale){
-                        <img class="sale-image" src="sale.png" alt="On Sale">
-                    }
+<div class="container py-5">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        @for (product of jeweleryProduct(); track product.id ) {
+            <app-product [product]="product"></app-product>
+        }
+        @empty {
+            <div class="text-center col-12">
+                <h1>No jewelery Products Found!</h1>
+            </div>
+        }
+        @defer {
+            @for (product of notJeweleryProduct(); track product.id ) {
+                <app-product [product]="product"></app-product>
+            }
+            @empty {
+                <div class="text-center col-12">
+                    <h1>No Products Found!</h1>
+                </div>
+            }
+        }
+        @placeholder {
+            <div class="text-center col-12">
+                <p>Loading more products...</p>
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
-        </div>
-    }
+        }
+        @loading {
+            <div class="text-center col-12">
+                <p>Loading other products...</p>
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        }
+        @error {
+            <div class="text-center col-12 text-danger">
+                <p>Error loading products. Please try again.</p>
+            </div>
+        }
+    </div>
 </div>
